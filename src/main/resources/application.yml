@@ -1,0 +1,37 @@
+server:
+  port: 8888
+  servlet:
+    application-display-name: baiwei
+
+spring:
+  datasource:
+    username: root
+    password: a123
+    url: jdbc:mysql://81.70.205.118:3306/baiwei?characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    #修改springboot默认数据源为Druid
+    #    type: com.alibaba.druid.pool.DruidDataSourceC3P0Adapter
+    #数据源其他配置
+#    initialSize: 5
+#    minIdle: 5
+#    maxActive: 20
+#    maxWait: 60000
+#    timeBetweenEvictionRunsMillis: 60000
+#    minEvictableIdleTimeMillis: 300000
+#    validationQuery: SELECT 1 FROM DUAL
+#    testWhileIdle: true
+#    testOnBorrow: false
+#    testOnReturn: false
+#    6unProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+mybatis:
+  #  mapper-locations: classpath:com.huangzq.baiwei.mapper.*Mapper.xml
+  type-aliases-package: com.huangzq.baiwei.bean
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#showSql
+logging:
+  level:
+    com.huangzq.baiwei.mapper: debug
