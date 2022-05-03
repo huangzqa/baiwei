@@ -10,7 +10,7 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    @Select("SELECT * FROM t_user")
+    @Select("SELECT id, username, password FROM t_user")
     List<User> queryAll();
 
     @Select("SELECT * FROM t_user WHERE id = #{id}")
@@ -19,4 +19,7 @@ public interface UserMapper {
     @Insert("insert into t_user (username,password) values (#{username},#{password});")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     Integer insert(User user);
+
+    @Select("SELECT id, username, password FROM t_user WHERE username = #{username} and password = #{password}")
+    List<User> queryByUsernameAndPassword(User user);
 }
